@@ -20,7 +20,7 @@
 			--cream: #F5EFE0;
 			--cream-2: #EDE4CF;
 			--white: #FDFAF4;
-			--text-muted: #9A8F7A;
+			--text-muted: #d5b988;
 			--font-display: 'Cormorant Garamond', serif;
 			--font-body: 'Jost', sans-serif;
 		}
@@ -43,6 +43,8 @@
 			font-family: var(--font-body);
 			font-weight: 300;
 			overflow-x: hidden;
+			font-size: 17px;
+			line-height: 1.7;
 		}
 
 		/* ─── SCROLLBAR ─── */
@@ -108,7 +110,7 @@
 		.nav-links a {
 			color: var(--cream);
 			text-decoration: none;
-			font-size: 0.75rem;
+			font-size: 0.85rem;
 			letter-spacing: 0.2em;
 			text-transform: uppercase;
 			font-weight: 400;
@@ -189,7 +191,7 @@
 		}
 
 		.hero-eyebrow {
-			font-size: 0.65rem;
+			font-size: 0.80rem;
 			letter-spacing: 0.4em;
 			text-transform: uppercase;
 			color: var(--gold);
@@ -200,7 +202,7 @@
 
 		.hero-title {
 			font-family: var(--font-display);
-			font-size: clamp(3rem, 5vw, 5.5rem);
+			font-size: clamp(5rem, 5vw, 5.5rem);
 			font-weight: 300;
 			line-height: 1.05;
 			color: var(--white);
@@ -215,9 +217,10 @@
 
 		.hero-subtitle {
 			margin-top: 1.5rem;
-			font-size: 1rem;
+			font-size: 1.15rem;
 			line-height: 1.8;
 			color: var(--text-muted);
+			font-weight: 400;
 			max-width: 420px;
 			opacity: 0;
 			animation: fadeUp 0.8s 0.6s forwards;
@@ -235,9 +238,9 @@
 		.btn-primary {
 			background: var(--gold);
 			color: var(--dark);
-			padding: 0.85rem 2rem;
+			padding: 0.95rem 2.2rem;
 			font-family: var(--font-body);
-			font-size: 0.72rem;
+			font-size: 0.82rem;
 			letter-spacing: 0.22em;
 			text-transform: uppercase;
 			font-weight: 500;
@@ -257,9 +260,9 @@
 		.btn-outline {
 			color: var(--cream);
 			border: 1px solid rgba(201, 168, 76, 0.4);
-			padding: 0.85rem 2rem;
+			padding: 0.95rem 2.2rem;
 			font-family: var(--font-body);
-			font-size: 0.72rem;
+			font-size: 0.82rem;
 			letter-spacing: 0.22em;
 			text-transform: uppercase;
 			font-weight: 400;
@@ -289,7 +292,7 @@
 		}
 
 		.hero-stat-label {
-			font-size: 0.65rem;
+			font-size: 1rem;
 			letter-spacing: 0.2em;
 			text-transform: uppercase;
 			color: var(--text-muted);
@@ -330,8 +333,8 @@
 			bottom: 3rem;
 			right: 3rem;
 			z-index: 2;
-			width: 110px;
-			height: 110px;
+			width: 90px;
+			height: 90px;
 			border: 1px solid rgba(201, 168, 76, 0.4);
 			border-radius: 50%;
 			display: flex;
@@ -346,7 +349,7 @@
 
 		.hero-badge-text {
 			font-family: var(--font-display);
-			font-size: 0.9rem;
+			font-size: 1rem;
 			color: var(--gold);
 			font-style: italic;
 		}
@@ -372,7 +375,6 @@
 			position: relative;
 			width: 100%;
 			height: 100%;
-			min-height: 100vh;
 			background: linear-gradient(135deg, #120e08 0%, #1e1608 50%, #120e08 100%);
 			display: flex;
 			align-items: center;
@@ -422,7 +424,7 @@
 
 		.center-logo-large {
 			font-family: var(--font-display);
-			font-size: 4rem;
+			font-size: 6rem;
 			color: var(--gold);
 			font-weight: 300;
 			text-align: center;
@@ -441,7 +443,7 @@
 		}
 
 		.section-eyebrow {
-			font-size: 0.65rem;
+			font-size: 0.75rem;
 			letter-spacing: 0.4em;
 			text-transform: uppercase;
 			color: var(--gold);
@@ -451,7 +453,7 @@
 
 		.section-title {
 			font-family: var(--font-display);
-			font-size: clamp(2.2rem, 4vw, 3.5rem);
+			font-size: clamp(3.5rem, 4vw, 3.5rem);
 			font-weight: 300;
 			text-align: center;
 			line-height: 1.15;
@@ -477,7 +479,7 @@
 			max-width: 520px;
 			margin: 0 auto;
 			line-height: 1.8;
-			font-size: 0.95rem;
+			font-size: 1.05rem;
 		}
 
 		/* ─── MARQUEE STRIP ─── */
@@ -495,7 +497,7 @@
 		}
 
 		.marquee-item {
-			font-size: 0.65rem;
+			font-size: 0.75rem;
 			letter-spacing: 0.35em;
 			text-transform: uppercase;
 			color: var(--dark);
@@ -567,21 +569,21 @@
 
 		.service-name {
 			font-family: var(--font-display);
-			font-size: 1.3rem;
+			font-size: 1.4rem;
 			color: var(--white);
 			font-weight: 400;
 			margin-bottom: 0.6rem;
 		}
 
 		.service-desc {
-			font-size: 0.8rem;
+			font-size: 0.9rem;
 			color: var(--text-muted);
 			line-height: 1.7;
 		}
 
 		.service-price {
 			margin-top: 1.2rem;
-			font-size: 0.65rem;
+			font-size: 0.75rem;
 			letter-spacing: 0.25em;
 			text-transform: uppercase;
 			color: var(--gold);
@@ -675,7 +677,7 @@
 			color: var(--text-muted);
 			line-height: 1.9;
 			margin-bottom: 1.5rem;
-			font-size: 0.95rem;
+			font-size: 1.05rem;
 		}
 
 		.about-features {
@@ -701,7 +703,7 @@
 		}
 
 		.about-feature-text {
-			font-size: 0.82rem;
+			font-size: 0.92rem;
 			color: var(--cream-2);
 		}
 
@@ -768,13 +770,13 @@
 
 		.process-step-title {
 			font-family: var(--font-display);
-			font-size: 1.2rem;
+			font-size: 1.5rem;
 			color: var(--white);
 			margin-bottom: 0.7rem;
 		}
 
 		.process-step-desc {
-			font-size: 0.82rem;
+			font-size: 0.92rem;
 			color: var(--text-muted);
 			line-height: 1.7;
 		}
@@ -815,7 +817,7 @@
 
 		.testimonial-text {
 			font-family: var(--font-display);
-			font-size: 1.05rem;
+			font-size: 1.15rem;
 			font-style: italic;
 			color: var(--cream-2);
 			line-height: 1.7;
@@ -842,7 +844,7 @@
 		}
 
 		.testimonial-name {
-			font-size: 0.8rem;
+			font-size: 0.9rem;
 			color: var(--white);
 			font-weight: 500;
 		}
@@ -888,7 +890,7 @@
 
 		.cta-banner-sub {
 			color: var(--text-muted);
-			font-size: 0.95rem;
+			font-size: 1.05rem;
 			margin-bottom: 2.5rem;
 			position: relative;
 		}
@@ -903,9 +905,9 @@
 		.whatsapp-btn {
 			background: #25D366;
 			color: white;
-			padding: 0.85rem 2rem;
+			padding: 0.95rem 2.2rem;
 			font-family: var(--font-body);
-			font-size: 0.72rem;
+			font-size: 0.82rem;
 			letter-spacing: 0.22em;
 			text-transform: uppercase;
 			font-weight: 500;
@@ -947,13 +949,13 @@
 
 		.info-card-title {
 			font-family: var(--font-display);
-			font-size: 1.3rem;
+			font-size: 1.4rem;
 			color: var(--white);
 			margin-bottom: 1rem;
 		}
 
 		.info-item {
-			font-size: 0.83rem;
+			font-size: 0.93rem;
 			color: var(--text-muted);
 			line-height: 2;
 		}
@@ -971,12 +973,12 @@
 		}
 
 		.hours-day {
-			font-size: 0.75rem;
+			font-size: 0.85rem;
 			color: var(--text-muted);
 		}
 
 		.hours-time {
-			font-size: 0.75rem;
+			font-size: 0.85rem;
 			color: var(--gold);
 			text-align: right;
 		}
@@ -1014,7 +1016,7 @@
 		}
 
 		.footer-brand-desc {
-			font-size: 0.82rem;
+			font-size: 0.92rem;
 			color: var(--text-muted);
 			line-height: 1.8;
 			max-width: 260px;
@@ -1045,7 +1047,7 @@
 		}
 
 		.footer-col-title {
-			font-size: 0.65rem;
+			font-size: 0.75rem;
 			letter-spacing: 0.3em;
 			text-transform: uppercase;
 			color: var(--gold);
@@ -1061,7 +1063,7 @@
 		}
 
 		.footer-links a {
-			font-size: 0.82rem;
+			font-size: 0.92rem;
 			color: var(--text-muted);
 			text-decoration: none;
 			transition: color 0.3s;
@@ -1080,7 +1082,7 @@
 		}
 
 		.footer-copy {
-			font-size: 0.72rem;
+			font-size: 0.82rem;
 			color: var(--text-muted);
 		}
 
@@ -1302,9 +1304,9 @@
 	<section class="hero" id="inicio">
 		<div class="hero-bg"></div>
 		<div class="hero-grain"></div>
-		<div class="hero-left">
+		<div class="hero-left text-5xl">
 			<p class="hero-eyebrow">L'IZZO Coyoacán — New Hair Generation</p>
-			<h1 class="hero-title">
+			<h1 class="hero-title ">
 				Expertos en<br><em>Belleza</em><br>Natural.
 			</h1>
 			<p class="hero-subtitle">
