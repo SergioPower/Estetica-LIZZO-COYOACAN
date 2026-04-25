@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>L'IZZO Coyoacán – New Hair Generation</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+		rel="stylesheet">
+	<style>
+		:root {
+			--gold: #C9A84C;
+			--gold-light: #E8C97A;
+			--dark: #0E0C09;
+			--dark-2: #1A1712;
+			--dark-3: #252118;
+			--cream: #F5EFE0;
+			--cream-2: #EDE4CF;
+			--white: #FDFAF4;
+			--text-muted: #9A8F7A;
+			--font-display: 'Cormorant Garamond', serif;
+			--font-body: 'Jost', sans-serif;
+		}
+
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			background: var(--dark);
+			color: var(--cream);
+			font-family: var(--font-body);
+			font-weight: 300;
+			overflow-x: hidden;
+		}
+
+		/* ─── SCROLLBAR ─── */
+		::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: var(--dark);
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: var(--gold);
+			border-radius: 2px;
+		}
+
+		/* ─── NAV ─── */
+		nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 100;
+			padding: 1.2rem 4rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transition: all 0.5s ease;
+		}
+
+		nav.scrolled {
+			background: rgba(14, 12, 9, 0.95);
+			backdrop-filter: blur(12px);
+			border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+			padding: 0.9rem 4rem;
+		}
+
+		.nav-logo {
+			font-family: var(--font-display);
+			font-size: 1.6rem;
+			font-weight: 600;
+			letter-spacing: 0.12em;
+			color: var(--gold);
+			text-decoration: none;
+		}
+
+		.nav-logo span {
+			display: block;
+			font-size: 0.55rem;
+			letter-spacing: 0.35em;
+			font-weight: 300;
+			color: var(--text-muted);
+			font-family: var(--font-body);
+			margin-top: -2px;
+		}
+
+		.nav-links {
+			display: flex;
+			gap: 2.5rem;
+			list-style: none;
+		}
+
+		.nav-links a {
+			color: var(--cream);
+			text-decoration: none;
+			font-size: 0.75rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			font-weight: 400;
+			transition: color 0.3s;
+			position: relative;
+		}
+
+		.nav-links a::after {
+			content: '';
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			width: 0;
+			height: 1px;
+			background: var(--gold);
+			transition: width 0.3s ease;
+		}
+
+		.nav-links a:hover {
+			color: var(--gold);
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.nav-cta {
+			background: var(--gold);
+			color: var(--dark) !important;
+			padding: 0.55rem 1.4rem !important;
+			font-weight: 500 !important;
+			letter-spacing: 0.15em !important;
+			transition: background 0.3s, transform 0.2s !important;
+		}
+
+		.nav-cta:hover {
+			background: var(--gold-light) !important;
+			transform: translateY(-1px);
+		}
+
+		.nav-cta::after {
+			display: none !important;
+		}
+
+		/* ─── HERO ─── */
+		.hero {
+			min-height: 100vh;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.hero-bg {
+			position: absolute;
+			inset: 0;
+			background: radial-gradient(ellipse at 30% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
+				radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.05) 0%, transparent 50%);
+			pointer-events: none;
+		}
+
+		.hero-grain {
+			position: absolute;
+			inset: 0;
+			opacity: 0.03;
+			pointer-events: none;
+			background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+			background-size: 256px;
+		}
+
+		.hero-left {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 8rem 4rem 4rem 6rem;
+			position: relative;
+			z-index: 1;
+		}
+
+		.hero-eyebrow {
+			font-size: 0.65rem;
+			letter-spacing: 0.4em;
+			text-transform: uppercase;
+			color: var(--gold);
+			margin-bottom: 1.5rem;
+			opacity: 0;
+			animation: fadeUp 0.8s 0.2s forwards;
+		}
+
+		.hero-title {
+			font-family: var(--font-display);
+			font-size: clamp(3rem, 5vw, 5.5rem);
+			font-weight: 300;
+			line-height: 1.05;
+			color: var(--white);
+			opacity: 0;
+			animation: fadeUp 0.8s 0.4s forwards;
+		}
+
+		.hero-title em {
+			font-style: italic;
+			color: var(--gold);
+		}
+
+		.hero-subtitle {
+			margin-top: 1.5rem;
+			font-size: 1rem;
+			line-height: 1.8;
+			color: var(--text-muted);
+			max-width: 420px;
+			opacity: 0;
+			animation: fadeUp 0.8s 0.6s forwards;
+		}
+
+		.hero-actions {
+			display: flex;
+			gap: 1.2rem;
+			margin-top: 2.5rem;
+			align-items: center;
+			opacity: 0;
+			animation: fadeUp 0.8s 0.8s forwards;
+		}
+
+		.btn-primary {
+			background: var(--gold);
+			color: var(--dark);
+			padding: 0.85rem 2rem;
+			font-family: var(--font-body);
+			font-size: 0.72rem;
+			letter-spacing: 0.22em;
+			text-transform: uppercase;
+			font-weight: 500;
+			text-decoration: none;
+			border: none;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			display: inline-block;
+		}
+
+		.btn-primary:hover {
+			background: var(--gold-light);
+			transform: translateY(-2px);
+			box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+		}
+
+		.btn-outline {
+			color: var(--cream);
+			border: 1px solid rgba(201, 168, 76, 0.4);
+			padding: 0.85rem 2rem;
+			font-family: var(--font-body);
+			font-size: 0.72rem;
+			letter-spacing: 0.22em;
+			text-transform: uppercase;
+			font-weight: 400;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			display: inline-block;
+		}
+
+		.btn-outline:hover {
+			border-color: var(--gold);
+			color: var(--gold);
+		}
+
+		.hero-stats {
+			display: flex;
+			gap: 3rem;
+			margin-top: 3.5rem;
+			opacity: 0;
+			animation: fadeUp 0.8s 1s forwards;
+		}
+
+		.hero-stat-num {
+			font-family: var(--font-display);
+			font-size: 2.2rem;
+			color: var(--gold);
+			font-weight: 300;
+		}
+
+		.hero-stat-label {
+			font-size: 0.65rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+			margin-top: 0.2rem;
+		}
+
+		.hero-right {
+			position: relative;
+			overflow: hidden;
+			opacity: 0;
+			animation: fadeRight 1s 0.3s forwards;
+		}
+
+		.hero-img-container {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+
+		.hero-img-container::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			background: linear-gradient(to right, var(--dark) 0%, transparent 20%),
+				linear-gradient(to top, var(--dark) 0%, transparent 20%);
+		}
+
+		.hero-img-main {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: sepia(15%) brightness(0.85);
+		}
+
+		.hero-badge {
+			position: absolute;
+			bottom: 3rem;
+			right: 3rem;
+			z-index: 2;
+			width: 110px;
+			height: 110px;
+			border: 1px solid rgba(201, 168, 76, 0.4);
+			border-radius: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background: rgba(14, 12, 9, 0.7);
+			backdrop-filter: blur(8px);
+			text-align: center;
+			animation: rotateBadge 20s linear infinite;
+		}
+
+		.hero-badge-text {
+			font-family: var(--font-display);
+			font-size: 0.9rem;
+			color: var(--gold);
+			font-style: italic;
+		}
+
+		.hero-badge-sub {
+			font-size: 0.5rem;
+			letter-spacing: 0.3em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+		}
+
+		.hero-img-placeholder {
+			width: 100%;
+			height: 100%;
+			min-height: 100vh;
+			background: linear-gradient(135deg, #1a1208 0%, #2a1e0a 40%, #1a1208 100%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.hero-visual-art {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			min-height: 100vh;
+			background: linear-gradient(135deg, #120e08 0%, #1e1608 50%, #120e08 100%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		.hair-art {
+			position: absolute;
+			inset: 0;
+			background:
+				radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201, 168, 76, 0.12) 0%, transparent 70%),
+				radial-gradient(ellipse 40% 80% at 80% 70%, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+		}
+
+		.hair-lines {
+			position: absolute;
+			inset: 0;
+			overflow: hidden;
+		}
+
+		.hair-lines svg {
+			width: 100%;
+			height: 100%;
+			opacity: 0.15;
+		}
+
+		.center-circle {
+			width: 280px;
+			height: 280px;
+			border: 1px solid rgba(201, 168, 76, 0.3);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			z-index: 2;
+		}
+
+		.center-circle::before {
+			content: '';
+			position: absolute;
+			inset: 20px;
+			border: 1px solid rgba(201, 168, 76, 0.15);
+			border-radius: 50%;
+		}
+
+		.center-logo-large {
+			font-family: var(--font-display);
+			font-size: 4rem;
+			color: var(--gold);
+			font-weight: 300;
+			text-align: center;
+			line-height: 1;
+		}
+
+		/* ─── SECTIONS COMMON ─── */
+		section {
+			padding: 7rem 0;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 2rem;
+		}
+
+		.section-eyebrow {
+			font-size: 0.65rem;
+			letter-spacing: 0.4em;
+			text-transform: uppercase;
+			color: var(--gold);
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+
+		.section-title {
+			font-family: var(--font-display);
+			font-size: clamp(2.2rem, 4vw, 3.5rem);
+			font-weight: 300;
+			text-align: center;
+			line-height: 1.15;
+			color: var(--white);
+		}
+
+		.section-title em {
+			font-style: italic;
+			color: var(--gold);
+		}
+
+		.section-line {
+			width: 60px;
+			height: 1px;
+			background: var(--gold);
+			margin: 1.5rem auto;
+			opacity: 0.6;
+		}
+
+		.section-sub {
+			text-align: center;
+			color: var(--text-muted);
+			max-width: 520px;
+			margin: 0 auto;
+			line-height: 1.8;
+			font-size: 0.95rem;
+		}
+
+		/* ─── MARQUEE STRIP ─── */
+		.marquee-strip {
+			background: var(--gold);
+			padding: 0.9rem 0;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+		.marquee-track {
+			display: inline-flex;
+			gap: 0;
+			animation: marquee 25s linear infinite;
+		}
+
+		.marquee-item {
+			font-size: 0.65rem;
+			letter-spacing: 0.35em;
+			text-transform: uppercase;
+			color: var(--dark);
+			font-weight: 500;
+			padding: 0 2.5rem;
+			font-family: var(--font-body);
+		}
+
+		.marquee-dot {
+			color: rgba(14, 12, 9, 0.4);
+		}
+
+		/* ─── SERVICES ─── */
+		.services {
+			background: var(--dark-2);
+		}
+
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1px;
+			margin-top: 4rem;
+			background: rgba(201, 168, 76, 0.1);
+		}
+
+		.service-card {
+			background: var(--dark-2);
+			padding: 2.5rem 2rem;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+			transition: all 0.4s ease;
+			cursor: default;
+		}
+
+		.service-card::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background: var(--gold);
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.4s ease;
+		}
+
+		.service-card:hover {
+			background: var(--dark-3);
+			transform: translateY(-4px);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+		}
+
+		.service-card:hover::before {
+			transform: scaleX(1);
+		}
+
+		.service-icon {
+			font-size: 2.2rem;
+			margin-bottom: 1.2rem;
+			display: block;
+			transition: transform 0.3s;
+		}
+
+		.service-card:hover .service-icon {
+			transform: scale(1.1);
+		}
+
+		.service-name {
+			font-family: var(--font-display);
+			font-size: 1.3rem;
+			color: var(--white);
+			font-weight: 400;
+			margin-bottom: 0.6rem;
+		}
+
+		.service-desc {
+			font-size: 0.8rem;
+			color: var(--text-muted);
+			line-height: 1.7;
+		}
+
+		.service-price {
+			margin-top: 1.2rem;
+			font-size: 0.65rem;
+			letter-spacing: 0.25em;
+			text-transform: uppercase;
+			color: var(--gold);
+		}
+
+		/* ─── ABOUT ─── */
+		.about {
+			background: var(--dark);
+		}
+
+		.about-inner {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 6rem;
+			align-items: center;
+		}
+
+		.about-visual {
+			position: relative;
+		}
+
+		.about-img-frame {
+			width: 100%;
+			aspect-ratio: 4/5;
+			background: linear-gradient(135deg, var(--dark-3), var(--dark-2));
+			border: 1px solid rgba(201, 168, 76, 0.2);
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.about-img-frame::after {
+			content: '';
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			right: -20px;
+			bottom: -20px;
+			border: 1px solid rgba(201, 168, 76, 0.15);
+			z-index: -1;
+		}
+
+		.about-img-art {
+			font-family: var(--font-display);
+			font-size: 8rem;
+			color: rgba(201, 168, 76, 0.08);
+			font-style: italic;
+			user-select: none;
+		}
+
+		.about-accent {
+			position: absolute;
+			top: -1.5rem;
+			right: -1.5rem;
+			width: 80px;
+			height: 80px;
+			background: var(--gold);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.about-accent-num {
+			font-family: var(--font-display);
+			font-size: 1.6rem;
+			color: var(--dark);
+			font-weight: 600;
+			line-height: 1;
+		}
+
+		.about-accent-label {
+			font-size: 0.45rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			color: var(--dark);
+			opacity: 0.7;
+		}
+
+		.about-content .section-eyebrow,
+		.about-content .section-title {
+			text-align: left;
+		}
+
+		.about-content .section-line {
+			margin-left: 0;
+		}
+
+		.about-text {
+			color: var(--text-muted);
+			line-height: 1.9;
+			margin-bottom: 1.5rem;
+			font-size: 0.95rem;
+		}
+
+		.about-features {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+			margin-top: 2rem;
+		}
+
+		.about-feature {
+			display: flex;
+			gap: 0.8rem;
+			align-items: flex-start;
+		}
+
+		.about-feature-dot {
+			width: 6px;
+			height: 6px;
+			background: var(--gold);
+			border-radius: 50%;
+			flex-shrink: 0;
+			margin-top: 5px;
+		}
+
+		.about-feature-text {
+			font-size: 0.82rem;
+			color: var(--cream-2);
+		}
+
+		/* ─── GALLERY ─── */
+		.mosaic-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			grid-auto-rows: minmax(300px, auto);
+			gap: 1.5rem;
+		}
+
+		/* ─── PROCESS ─── */
+		.process {
+			background: var(--dark);
+		}
+
+		.process-steps {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2rem;
+			margin-top: 4rem;
+			position: relative;
+		}
+
+		.process-steps::before {
+			content: '';
+			position: absolute;
+			top: 28px;
+			left: 12.5%;
+			right: 12.5%;
+			height: 1px;
+			background: linear-gradient(to right, transparent, var(--gold), transparent);
+			opacity: 0.3;
+		}
+
+		.process-step {
+			text-align: center;
+			position: relative;
+		}
+
+		.process-num {
+			width: 56px;
+			height: 56px;
+			border: 1px solid rgba(201, 168, 76, 0.4);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 1.5rem;
+			font-family: var(--font-display);
+			font-size: 1.3rem;
+			color: var(--gold);
+			background: var(--dark);
+			position: relative;
+			z-index: 1;
+			transition: all 0.3s;
+		}
+
+		.process-step:hover .process-num {
+			background: var(--gold);
+			color: var(--dark);
+			border-color: var(--gold);
+		}
+
+		.process-step-title {
+			font-family: var(--font-display);
+			font-size: 1.2rem;
+			color: var(--white);
+			margin-bottom: 0.7rem;
+		}
+
+		.process-step-desc {
+			font-size: 0.82rem;
+			color: var(--text-muted);
+			line-height: 1.7;
+		}
+
+		/* ─── TESTIMONIALS ─── */
+		.testimonials {
+			background: var(--dark-2);
+		}
+
+		.testimonials-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5rem;
+			margin-top: 4rem;
+		}
+
+		.testimonial-card {
+			background: var(--dark-3);
+			padding: 2.5rem;
+			border: 1px solid rgba(201, 168, 76, 0.08);
+			transition: border-color 0.3s, transform 0.3s;
+			position: relative;
+		}
+
+		.testimonial-card:hover {
+			border-color: rgba(201, 168, 76, 0.3);
+			transform: translateY(-4px);
+		}
+
+		.testimonial-quote {
+			font-family: var(--font-display);
+			font-size: 4rem;
+			color: var(--gold);
+			opacity: 0.2;
+			line-height: 0.5;
+			margin-bottom: 1.5rem;
+		}
+
+		.testimonial-text {
+			font-family: var(--font-display);
+			font-size: 1.05rem;
+			font-style: italic;
+			color: var(--cream-2);
+			line-height: 1.7;
+			margin-bottom: 1.5rem;
+		}
+
+		.testimonial-author {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.testimonial-avatar {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: linear-gradient(135deg, var(--gold), var(--gold-light));
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: var(--font-display);
+			font-size: 1rem;
+			color: var(--dark);
+		}
+
+		.testimonial-name {
+			font-size: 0.8rem;
+			color: var(--white);
+			font-weight: 500;
+		}
+
+		.testimonial-stars {
+			font-size: 0.65rem;
+			color: var(--gold);
+			letter-spacing: 0.1em;
+		}
+
+		/* ─── CTA BANNER ─── */
+		.cta-banner {
+			background: linear-gradient(135deg, var(--dark-3) 0%, #1e1608 50%, var(--dark-3) 100%);
+			border-top: 1px solid rgba(201, 168, 76, 0.15);
+			border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+			padding: 6rem 0;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.cta-banner::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 70%);
+		}
+
+		.cta-banner-title {
+			font-family: var(--font-display);
+			font-size: clamp(2.5rem, 5vw, 4.5rem);
+			color: var(--white);
+			font-weight: 300;
+			line-height: 1.1;
+			margin-bottom: 1.5rem;
+			position: relative;
+		}
+
+		.cta-banner-title em {
+			color: var(--gold);
+			font-style: italic;
+		}
+
+		.cta-banner-sub {
+			color: var(--text-muted);
+			font-size: 0.95rem;
+			margin-bottom: 2.5rem;
+			position: relative;
+		}
+
+		.cta-actions {
+			display: flex;
+			gap: 1.2rem;
+			justify-content: center;
+			position: relative;
+		}
+
+		.whatsapp-btn {
+			background: #25D366;
+			color: white;
+			padding: 0.85rem 2rem;
+			font-family: var(--font-body);
+			font-size: 0.72rem;
+			letter-spacing: 0.22em;
+			text-transform: uppercase;
+			font-weight: 500;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+		}
+
+		.whatsapp-btn:hover {
+			background: #1fb855;
+			transform: translateY(-2px);
+			box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+		}
+
+		/* ─── INFO SECTION ─── */
+		.info-section {
+			background: var(--dark);
+		}
+
+		.info-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 3rem;
+			margin-top: 4rem;
+		}
+
+		.info-card {
+			text-align: center;
+			padding: 2rem;
+		}
+
+		.info-icon {
+			font-size: 2rem;
+			margin-bottom: 1.2rem;
+			display: block;
+		}
+
+		.info-card-title {
+			font-family: var(--font-display);
+			font-size: 1.3rem;
+			color: var(--white);
+			margin-bottom: 1rem;
+		}
+
+		.info-item {
+			font-size: 0.83rem;
+			color: var(--text-muted);
+			line-height: 2;
+		}
+
+		.info-item a {
+			color: var(--gold);
+			text-decoration: none;
+		}
+
+		.hours-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0.2rem 1.5rem;
+			text-align: left;
+		}
+
+		.hours-day {
+			font-size: 0.75rem;
+			color: var(--text-muted);
+		}
+
+		.hours-time {
+			font-size: 0.75rem;
+			color: var(--gold);
+			text-align: right;
+		}
+
+		/* ─── FOOTER ─── */
+		footer {
+			background: var(--dark-2);
+			padding: 4rem 0 2rem;
+			border-top: 1px solid rgba(201, 168, 76, 0.1);
+		}
+
+		.footer-top {
+			display: grid;
+			grid-template-columns: 2fr 1fr 1fr 1fr;
+			gap: 3rem;
+			margin-bottom: 3rem;
+		}
+
+		.footer-brand-logo {
+			font-family: var(--font-display);
+			font-size: 2rem;
+			color: var(--gold);
+			font-weight: 300;
+			display: block;
+			margin-bottom: 0.3rem;
+		}
+
+		.footer-brand-sub {
+			font-size: 0.55rem;
+			letter-spacing: 0.35em;
+			text-transform: uppercase;
+			color: var(--text-muted);
+			display: block;
+			margin-bottom: 1rem;
+		}
+
+		.footer-brand-desc {
+			font-size: 0.82rem;
+			color: var(--text-muted);
+			line-height: 1.8;
+			max-width: 260px;
+		}
+
+		.footer-socials {
+			display: flex;
+			gap: 0.8rem;
+			margin-top: 1.5rem;
+		}
+
+		.footer-social-link {
+			width: 36px;
+			height: 36px;
+			border: 1px solid rgba(201, 168, 76, 0.2);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--text-muted);
+			text-decoration: none;
+			font-size: 0.9rem;
+			transition: all 0.3s;
+		}
+
+		.footer-social-link:hover {
+			border-color: var(--gold);
+			color: var(--gold);
+		}
+
+		.footer-col-title {
+			font-size: 0.65rem;
+			letter-spacing: 0.3em;
+			text-transform: uppercase;
+			color: var(--gold);
+			margin-bottom: 1.5rem;
+		}
+
+		.footer-links {
+			list-style: none;
+		}
+
+		.footer-links li {
+			margin-bottom: 0.7rem;
+		}
+
+		.footer-links a {
+			font-size: 0.82rem;
+			color: var(--text-muted);
+			text-decoration: none;
+			transition: color 0.3s;
+		}
+
+		.footer-links a:hover {
+			color: var(--cream);
+		}
+
+		.footer-bottom {
+			padding-top: 2rem;
+			border-top: 1px solid rgba(201, 168, 76, 0.08);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.footer-copy {
+			font-size: 0.72rem;
+			color: var(--text-muted);
+		}
+
+		/* ─── FLOATING WHATSAPP ─── */
+		.float-wa {
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			z-index: 99;
+			width: 56px;
+			height: 56px;
+			background: #25D366;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+			transition: all 0.3s;
+			animation: pulse 2s infinite;
+		}
+
+		.float-wa:hover {
+			transform: scale(1.1);
+			box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+		}
+
+		.float-wa svg {
+			width: 28px;
+			height: 28px;
+			fill: white;
+		}
+
+		/* ─── ANIMATIONS ─── */
+		@keyframes fadeUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeRight {
+			from {
+				opacity: 0;
+				transform: translateX(40px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes marquee {
+			from {
+				transform: translateX(0);
+			}
+
+			to {
+				transform: translateX(-50%);
+			}
+		}
+
+		@keyframes pulse {
+
+			0%,
+			100% {
+				box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+			}
+
+			50% {
+				box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+			}
+		}
+
+		@keyframes rotateBadge {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes float {
+
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-8px);
+			}
+		}
+
+		/* ─── SCROLL REVEAL ─── */
+		.reveal {
+			opacity: 0;
+			transform: translateY(40px);
+			transition: opacity 0.7s ease, transform 0.7s ease;
+		}
+
+		.reveal.revealed {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.reveal-delay-1 {
+			transition-delay: 0.1s;
+		}
+
+		.reveal-delay-2 {
+			transition-delay: 0.2s;
+		}
+
+		.reveal-delay-3 {
+			transition-delay: 0.3s;
+		}
+
+		.reveal-delay-4 {
+			transition-delay: 0.4s;
+		}
+
+		/* ─── MOBILE ─── */
+		@media (max-width: 900px) {
+			nav {
+				padding: 1rem 1.5rem;
+			}
+
+			nav.scrolled {
+				padding: 0.8rem 1.5rem;
+			}
+
+			.nav-links {
+				display: none;
+			}
+
+			.hero {
+				grid-template-columns: 1fr;
+			}
+
+			.hero-left {
+				padding: 7rem 2rem 3rem;
+			}
+
+			.hero-right {
+				height: 50vw;
+			}
+
+			.services-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.about-inner {
+				grid-template-columns: 1fr;
+			}
+
+			.gallery-grid {
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-rows: auto;
+			}
+
+			.gallery-item:first-child {
+				grid-column: span 2;
+			}
+
+			.process-steps {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.process-steps::before {
+				display: none;
+			}
+
+			.testimonials-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.info-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.footer-top {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			.footer-bottom {
+				flex-direction: column;
+				gap: 1rem;
+				text-align: center;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- NAV -->
+	<nav id="navbar">
+		<a href="#" class="nav-logo">L'IZZO<span>NEW HAIR GENERATION</span></a>
+		<ul class="nav-links">
+			<li><a href="#servicios">Servicios</a></li>
+			<li><a href="#nosotros">Nosotros</a></li>
+			<li><a href="#galeria">Galería</a></li>
+			<li><a href="#contacto">Contacto</a></li>
+			<li><a href="https://wa.me/525562067046?text=Hola!%20Me%20gustaría%20reservar%20una%20cita" target="_blank"
+					class="nav-cta">Reservar</a></li>
+		</ul>
+	</nav>
+
+	<!-- HERO -->
+	<section class="hero" id="inicio">
+		<div class="hero-bg"></div>
+		<div class="hero-grain"></div>
+		<div class="hero-left">
+			<p class="hero-eyebrow">L'IZZO Coyoacán — New Hair Generation</p>
+			<h1 class="hero-title">
+				Expertos en<br><em>Belleza</em><br>Natural.
+			</h1>
+			<p class="hero-subtitle">
+				Revoluciona tu cabello con técnicas de vanguardia y el poder de la naturaleza. Tu transformación comienza aquí.
+			</p>
+			<div class="hero-actions">
+				<a href="https://wa.me/525562067046?text=Hola!%20Me%20gustaría%20reservar%20una%20cita" target="_blank"
+					class="btn-primary">Agendar Cita</a>
+				<a href="#servicios" class="btn-outline">Ver Servicios</a>
+			</div>
+			<div class="hero-stats">
+				<div>
+					<div class="hero-stat-num">10+</div>
+					<div class="hero-stat-label">Años de Exp.</div>
+				</div>
+				<div>
+					<div class="hero-stat-num">5k+</div>
+					<div class="hero-stat-label">Clientes</div>
+				</div>
+				<div>
+					<div class="hero-stat-num">15+</div>
+					<div class="hero-stat-label">Servicios</div>
+				</div>
+			</div>
+		</div>
+		<div class="hero-right">
+			<div class="hero-visual-art">
+				<div class="hair-art"></div>
+				<div class="hair-lines">
+					<svg viewBox="0 0 500 800" preserveAspectRatio="none">
+						<defs>
+							<linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" style="stop-color:#C9A84C;stop-opacity:1" />
+								<stop offset="100%" style="stop-color:#C9A84C;stop-opacity:0" />
+							</linearGradient>
+						</defs>
+						<!-- Flowing hair lines -->
+						<path d="M100,0 Q200,200 150,400 Q100,600 200,800" stroke="url(#hairGrad)" stroke-width="1.5" fill="none" />
+						<path d="M180,0 Q280,180 220,380 Q160,580 260,800" stroke="url(#hairGrad)" stroke-width="1" fill="none" />
+						<path d="M250,0 Q320,150 280,350 Q240,550 320,800" stroke="url(#hairGrad)" stroke-width="2" fill="none" />
+						<path d="M320,0 Q380,200 350,400 Q320,600 400,800" stroke="url(#hairGrad)" stroke-width="1" fill="none" />
+						<path d="M400,0 Q430,180 410,380 Q390,580 450,800" stroke="url(#hairGrad)" stroke-width="1.5" fill="none" />
+						<path d="M50,100 Q150,300 100,500 Q50,700 150,800" stroke="url(#hairGrad)" stroke-width="0.8" fill="none"
+							opacity="0.5" />
+						<path d="M450,50 Q480,250 460,450 Q440,650 500,800" stroke="url(#hairGrad)" stroke-width="0.8" fill="none"
+							opacity="0.5" />
+					</svg>
+				</div>
+				<div class="center-circle" style="animation: float 6s ease-in-out infinite;">
+					<div style="text-align:center;">
+						<div class="center-logo-large">L'I</div>
+						<div
+							style="font-size:0.5rem;letter-spacing:0.4em;color:var(--text-muted);text-transform:uppercase;margin-top:0.3rem;">
+							Coyoacán</div>
+					</div>
+				</div>
+			</div>
+			<div class="hero-badge">
+				<div class="hero-badge-text">Since</div>
+				<div style="font-family:var(--font-display);font-size:2rem;color:var(--gold);line-height:1;">15+</div>
+				<div class="hero-badge-sub">Años</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- MARQUEE -->
+	<div class="marquee-strip">
+		<div class="marquee-track">
+			<span class="marquee-item">Coloración Profesional <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Extensiones de Cabello <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Servicios Nupciales <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Estilismo Capilar <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Maquillaje Profesional <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Manicura & Pedicura <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Barbería Premium <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Corte para Dama <span class="marquee-dot">✦</span></span>
+			<!-- repeat -->
+			<span class="marquee-item">Coloración Profesional <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Extensiones de Cabello <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Servicios Nupciales <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Estilismo Capilar <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Maquillaje Profesional <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Manicura & Pedicura <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Barbería Premium <span class="marquee-dot">✦</span></span>
+			<span class="marquee-item">Corte para Dama <span class="marquee-dot">✦</span></span>
+		</div>
+	</div>
+
+	<!-- SERVICES -->
+	<section class="services" id="servicios">
+		<div class="container">
+			<p class="section-eyebrow reveal">Nuestros Servicios</p>
+			<h2 class="section-title reveal reveal-delay-1">Todo lo que <em>necesitas</em><br>en un solo lugar</h2>
+			<div class="section-line reveal reveal-delay-2"></div>
+			<p class="section-sub reveal reveal-delay-3">Ofrecemos una experiencia de belleza completa con técnicas de
+				vanguardia y productos de alta calidad.</p>
+			<div class="services-grid">
+				<div class="service-card reveal">
+					<span class="service-icon">💍</span>
+					<h3 class="service-name">Nupcial</h3>
+					<p class="service-desc">Peinados y maquillaje para el día más especial de tu vida. Pruebas incluidas.</p>
+					<p class="service-price">Consultar precio</p>
+				</div>
+				<div class="service-card reveal reveal-delay-1">
+					<span class="service-icon">✂️</span>
+					<h3 class="service-name">Extensiones</h3>
+					<p class="service-desc">Extensiones de keratina y tejido natural para un volumen y longitud espectaculares.
+					</p>
+					<p class="service-price">Desde $2,500 MXN</p>
+				</div>
+				<div class="service-card reveal reveal-delay-2">
+					<span class="service-icon">🎨</span>
+					<h3 class="service-name">Coloración</h3>
+					<p class="service-desc">Técnicas modernas: balayage, mechas, tinte plano y corrección de color profesional.
+					</p>
+					<p class="service-price">Desde $2,500 MXN</p>
+				</div>
+				<div class="service-card reveal reveal-delay-3">
+					<span class="service-icon">💇‍♀️</span>
+					<h3 class="service-name">Estilismo</h3>
+					<p class="service-desc">Corte, lavado, peinado y tratamientos capilares personalizados para cada tipo de
+						cabello.</p>
+					<p class="service-price">Desde $2,500 MXN</p>
+				</div>
+				<div class="service-card reveal">
+					<span class="service-icon">💄</span>
+					<h3 class="service-name">Maquillaje</h3>
+					<p class="service-desc">Maquillaje profesional para eventos, sesiones fotográficas y uso diario.</p>
+					<p class="service-price">Consultar precio</p>
+				</div>
+				<div class="service-card reveal reveal-delay-1">
+					<span class="service-icon">💅</span>
+					<h3 class="service-name">Manicura</h3>
+					<p class="service-desc">Manicura y pedicura con técnicas modernas: gel, acrílico, nail art y semipermanente.
+					</p>
+					<p class="service-price">Consultar precio</p>
+				</div>
+				<div class="service-card reveal reveal-delay-2">
+					<span class="service-icon">🪒</span>
+					<h3 class="service-name">Barbería</h3>
+					<p class="service-desc">Corte, afeitado clásico y tratamientos premium para caballero. Estética masculina de
+						lujo.</p>
+					<p class="service-price">Consultar precio</p>
+				</div>
+				<div class="service-card reveal reveal-delay-3">
+					<span class="service-icon">✨</span>
+					<h3 class="service-name">Tratamientos</h3>
+					<p class="service-desc">Hidratación profunda, keratina, alisado y más. Revive tu cabello desde la raíz.</p>
+					<p class="service-price">Consultar precio</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ABOUT -->
+	<section class="about" id="nosotros">
+		<div class="container">
+			<div class="about-inner">
+				<div class="about-visual reveal">
+					<div class="about-img-frame">
+						<img src="https://lh3.googleusercontent.com/p/AF1QipOqZ9peNw1-dV6zpVtgJHAz-Af_GynIzBfhISDp=s580-k-no"
+							alt="L'IZZO Coyoacán">
+					</div>
+					<div class="about-accent">
+						<div style="text-align:center;">
+							<div class="about-accent-num">★ 5</div>
+							<div class="about-accent-label">Estrellas</div>
+						</div>
+					</div>
+				</div>
+				<div class="about-content">
+					<p class="section-eyebrow reveal">Quiénes Somos</p>
+					<h2 class="section-title reveal reveal-delay-1">Tu belleza es<br><em>nuestra pasión</em></h2>
+					<div class="section-line reveal reveal-delay-2"></div>
+					<p class="about-text reveal reveal-delay-3">
+						En L'IZZO Coyoacán somos más que una estética: somos un espacio donde la belleza se transforma en arte.
+						Nuestro equipo de expertos combina años de experiencia con las últimas tendencias mundiales.
+					</p>
+					<p class="about-text reveal reveal-delay-3">
+						Ubicados en el corazón de Coyoacán, ofrecemos un servicio personalizado y de alta calidad en un ambiente
+						exclusivo y relajante. Cada cliente merece sentirse extraordinario.
+					</p>
+					<div class="about-features reveal reveal-delay-4">
+						<div class="about-feature">
+							<div class="about-feature-dot"></div>
+							<span class="about-feature-text">Productos de primera calidad</span>
+						</div>
+						<div class="about-feature">
+							<div class="about-feature-dot"></div>
+							<span class="about-feature-text">Estilistas certificados</span>
+						</div>
+						<div class="about-feature">
+							<div class="about-feature-dot"></div>
+							<span class="about-feature-text">Ambiente exclusivo</span>
+						</div>
+						<div class="about-feature">
+							<div class="about-feature-dot"></div>
+							<span class="about-feature-text">Reservas online 24/7</span>
+						</div>
+						<div class="about-feature">
+							<div class="about-feature-dot"></div>
+							<span class="about-feature-text">Técnicas de vanguardia</span>
+						</div>
+						<div class="about-feature">
+							<div class="about-feature-dot"></div>
+							<span class="about-feature-text">Atención personalizada</span>
+						</div>
+					</div>
+					<div style="margin-top:2.5rem;" class="reveal reveal-delay-4">
+						<a href="https://wa.me/525562067046?text=Hola!%20Me%20gustaría%20más%20información" target="_blank"
+							class="btn-primary">Conócenos</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- GALLERY -->
+	<section id="galeria">
+		<div class="container">
+			<p class="section-eyebrow reveal">Galería de Resultados</p>
+			<h2 class="section-title reveal reveal-delay-1">Nuestras <em>Transformaciones</em></h2>
+			<div class="section-line reveal reveal-delay-2"></div>
+			<p class="section-sub reveal reveal-delay-3">Cada resultado habla por sí solo. Descubre las transformaciones que
+				hemos logrado para nuestros clientes.</p>
+		</div>
+		<div class="container" style="margin-top:3rem;">
+			<div class="mosaic-grid">
+				<div class="col-span-1 row-span-3 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover"
+						src=" https://instagram.fmex2-1.fna.fbcdn.net/v/t51.82787-15/656426472_18111099505625916_1820639462289951496_n.webp?stp=dst-webp_s1080x1080&_nc_cat=105&ig_cache_key=MzQ0MzM3Mjc1OTAzODk3NDA4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTIwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=9fSLYiqk0SUQ7kNvwEMNh-B&_nc_oc=AdoBxSdzqPGd4GLZbAwI9iPYtxAlDJQrS67WQb_hiUtyqPrYciaMkOzDI7-xWtP0Eo4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-1.fna&_nc_gid=gLL9bE4u0OjxUyxp03-2MA&_nc_ss=7a22e&oh=00_Af1EeVcBQLUBImSYBF9eFKW3RVMkjIHSxPHvx8zWniuvyA&oe=69F1F1F5"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      ">
+				</div>
+				<div class="col-span-1 row-span-1 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover"
+						src="https://instagram.fmex2-1.fna.fbcdn.net/v/t51.82787-15/626698873_18133300759450951_7460250986682800543_n.jpg?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=103&ig_cache_key=MzQyMzc3NDQyOTc4Mjg2MjcyOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTQ0MC5zZHIuQzMifQ%3D%3D&_nc_ohc=Jv2eO8IPHWIQ7kNvwFjR-WK&_nc_oc=Ador1-TGHFwm67gsHGwqb_CRWGZ98o2EpA0KA5TloRIbbWO5oEZrbSPMNCxt1vuOKR8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-1.fna&_nc_gid=gLL9bE4u0OjxUyxp03-2MA&_nc_ss=7a22e&oh=00_Af3odRYFjGFGtMa6qAtEW7gDtbWw09RajMvpMHVK0LamrQ&oe=69F1DFCF"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      ">
+				</div>
+				<!-- 4. Medium Vertical (Spans 2 rows, 2nd column) -->
+				<div class="col-span-1 row-span-2 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover" data-alt="Light study"
+						src="https://instagram.fmex2-2.fna.fbcdn.net/v/t51.82787-15/651886817_17993717426762985_4512210577277897714_n.webp?stp=dst-webp_s1080x1080&_nc_cat=108&ig_cache_key=MzMzMjcwODM1ODgxNjA0NDIzMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTIwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=Dxap_y4Riq8Q7kNvwFerzFG&_nc_oc=AdrqFQ0QA9TYMyGGsNNvnwbU1b4cRatKAdvqv6UeF5_uHs_y9nQ4fwzPOOVNqybtfwo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-2.fna&_nc_gid=QLxkdZSY1e9p94Ss0Hjwug&_nc_ss=7a22e&oh=00_Af1jGU4Cwfot22P1EmoJwnTjXpWCzAI0-MHY6fWXbSxr8A&oe=69F1D6DB"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      " />
+				</div>
+				<!-- 5. Dark Square (Middle row, 3rd column) -->
+				<div class="col-span-1 row-span-1 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover" data-alt="Detail texture"
+						src="https://instagram.fmex2-1.fna.fbcdn.net/v/t51.82787-15/623911036_18105941314739747_3082122363969516497_n.webp?stp=dst-webp_s1080x1080&_nc_cat=103&ig_cache_key=MzMyODc5MDg4NDI0OTgzMzQ1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTIwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=PTv435mKrFIQ7kNvwFmA4MM&_nc_oc=Ado1_facc6dLFFxrZwFBSkaRZ8HMqa9AUm4cAFg_cCq-fOnLqbetn7PZ4b1ts0yoD3Y&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-1.fna&_nc_gid=QLxkdZSY1e9p94Ss0Hjwug&_nc_ss=7a22e&oh=00_Af0lNRVfuXUJ22VXl0micr-OA1AwdbepMWGn200RlZb-Jg&oe=69F1D1A8"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      " />
+				</div>
+				<!-- 6. Square (Middle row, 4th column) -->
+				<div class="col-span-1 row-span-1 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover" data-alt="Modern interior"
+						src="https://instagram.fmex2-2.fna.fbcdn.net/v/t51.82787-15/649845377_17983547897973069_6934665915137781784_n.jpg?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=104&ig_cache_key=MzMwMjA1NTM4OTU3NDk1MDY1OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTIwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=sceGjZSu_-EQ7kNvwHNvjzP&_nc_oc=AdoEcl-Vucn05TydDcNqVC9Nrg2t3s31cdXo57DLRyg2TsAMx2JVEyLU3sRWspxgmhc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-2.fna&_nc_gid=3rGJTPIIl4eI7Nh9V0hiwg&_nc_ss=7a22e&oh=00_Af3520wjYsjVisAkaN0yoTs7RFi2hugwCekB_hDubQrItA&oe=69F1D5EB"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      " />
+				</div>
+				<!-- 7. Square (Bottom left corner-ish, fits below col 1 start) -->
+				<div class="col-span-1 row-span-1 rounded-[1rem] overflow-hidden ">
+					<img class="w-full h-full object-cover" data-alt="Detail texture"
+						src="https://instagram.fmex2-2.fna.fbcdn.net/v/t51.82787-15/655488431_18099396019943390_2919338366470562863_n.webp?stp=dst-webp_p1080x1080&_nc_cat=100&ig_cache_key=MzI1Nzk2MzgxMTE0MzI4NDUzMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTUwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=e0uhXx9ztqYQ7kNvwEhSt-W&_nc_oc=AdpraNO9zrtRqRvGySa6ltC3v9Ba3dAjNIJ9Z5sfaYCFEQPdoAPLHrX_TyPnRiRK_Ac&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-2.fna&_nc_gid=vPfsbtiCsOAyW2PYjILhdA&_nc_ss=7a22e&oh=00_Af3c9_VrmdWtCOVQhp3vUvYY1-Wv3RaNUA9_Hu8bze7heA&oe=69F2073F"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      " />
+				</div>
+				<!-- 8. Horizontal Wide (Bottom row, spans 2 columns on right) -->
+				<div class="col-span-2 row-span-1 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover" data-alt="Landscape panoramic"
+						src="https://instagram.fmex2-2.fna.fbcdn.net/v/t51.82787-15/627542453_18308844784277390_4804219480857584022_n.jpg?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=108&ig_cache_key=MzI1MDU3MjAzNDEwNzAxODgyMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTIwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=J9U-cNXI16AQ7kNvwE58sci&_nc_oc=Adq_bzi0LuMN6KMwLxuLBEc3QS-LDD0aa9D3dm1UPhSKS2Q7RIuRa8YmDcSA3iGF44I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-2.fna&_nc_gid=vPfsbtiCsOAyW2PYjILhdA&_nc_ss=7a22e&oh=00_Af2IU298stZLHErc6FWsy-yF2-npJ0Xq6qP1SxuNmqBODg&oe=69F1F098"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      " />
+				</div>
+				<div class="col-span-2 row-span-1 rounded-[1rem] overflow-hidden">
+					<img class="w-full h-full object-cover" data-alt="Landscape panoramic"
+						src="https://instagram.fmex2-1.fna.fbcdn.net/v/t51.82787-15/656706053_18097787740816424_1187977778526957394_n.jpg?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=109&ig_cache_key=MzI0Nzc5MTQ3ODY1NTA4MjM5Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyMDB4MTIwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=dlsAfcq_EVMQ7kNvwF3D9Wg&_nc_oc=Adqqjr1wGm-zeRwr-wStkwtPbqIKshFtYZXwnEiLnzaEYw_Na7YzYFwnFErlyVz2H28&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fmex2-1.fna&_nc_gid=vPfsbtiCsOAyW2PYjILhdA&_nc_ss=7a22e&oh=00_Af13jEVMYZej-hX4KxR_8X0EpAU-01tAWnPBR7Tsnsy5TQ&oe=69F1F29A"
+						style="
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      " />
+				</div>
+
+
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<!-- PROCESS -->
+	<section class="process">
+		<div class="container">
+			<p class="section-eyebrow reveal">Tu Experiencia</p>
+			<h2 class="section-title reveal reveal-delay-1">Así funciona <em>tu cita</em></h2>
+			<div class="section-line reveal reveal-delay-2"></div>
+			<div class="process-steps">
+				<div class="process-step reveal">
+					<div class="process-num">01</div>
+					<h3 class="process-step-title">Reserva</h3>
+					<p class="process-step-desc">Agenda tu cita por WhatsApp o visítanos directamente. Disponibilidad todos los
+						días.</p>
+				</div>
+				<div class="process-step reveal reveal-delay-1">
+					<div class="process-num">02</div>
+					<h3 class="process-step-title">Consulta</h3>
+					<p class="process-step-desc">Nuestros expertos analizan tu cabello y tipo de piel para recomendarte el
+						tratamiento ideal.</p>
+				</div>
+				<div class="process-step reveal reveal-delay-2">
+					<div class="process-num">03</div>
+					<h3 class="process-step-title">Transformación</h3>
+					<p class="process-step-desc">Disfrutas del servicio en un ambiente relajante mientras trabajamos tu look
+						perfecto.</p>
+				</div>
+				<div class="process-step reveal reveal-delay-3">
+					<div class="process-num">04</div>
+					<h3 class="process-step-title">Resultado</h3>
+					<p class="process-step-desc">Sal renovada y radiante. Te damos tips de cuidado para prolongar tu
+						transformación.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TESTIMONIALS -->
+	<section class="testimonials">
+		<div class="container">
+			<p class="section-eyebrow reveal">Testimonios</p>
+			<h2 class="section-title reveal reveal-delay-1">Lo que dicen<br><em>nuestras clientas</em></h2>
+			<div class="section-line reveal reveal-delay-2"></div>
+			<div class="testimonials-grid">
+				<div class="testimonial-card reveal">
+					<div class="testimonial-quote">"</div>
+					<p class="testimonial-text">Fui a hacerme un balayage y quedé completamente enamorada del resultado. El equipo
+						es súper profesional y el ambiente es increíble. ¡Definitivamente regreso!</p>
+					<div class="testimonial-author">
+						<div class="testimonial-avatar">M</div>
+						<div>
+							<div class="testimonial-name">María G.</div>
+							<div class="testimonial-stars">★ ★ ★ ★ ★</div>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-card reveal reveal-delay-1">
+					<div class="testimonial-quote">"</div>
+					<p class="testimonial-text">Me hicieron el peinado para mi boda y fue perfecto. Estuvieron muy pendientes de
+						cada detalle. Mis fotos quedaron hermosas gracias a ellos.</p>
+					<div class="testimonial-author">
+						<div class="testimonial-avatar">L</div>
+						<div>
+							<div class="testimonial-name">Laura R.</div>
+							<div class="testimonial-stars">★ ★ ★ ★ ★</div>
+						</div>
+					</div>
+				</div>
+				<div class="testimonial-card reveal reveal-delay-2">
+					<div class="testimonial-quote">"</div>
+					<p class="testimonial-text">Las extensiones quedaron perfectas, muy naturales. Ya llevan meses y siguen
+						increíbles. El servicio es de primera y los precios son muy accesibles.</p>
+					<div class="testimonial-author">
+						<div class="testimonial-avatar">S</div>
+						<div>
+							<div class="testimonial-name">Sofía M.</div>
+							<div class="testimonial-stars">★ ★ ★ ★ ★</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA BANNER -->
+	<div class="cta-banner">
+		<div class="container">
+			<h2 class="cta-banner-title reveal">¿Lista para tu<br><em>transformación?</em></h2>
+			<p class="cta-banner-sub reveal reveal-delay-1">Agenda tu cita hoy y descubre por qué somos la estética favorita
+				de Coyoacán</p>
+			<div class="cta-actions reveal reveal-delay-2">
+				<a href="https://wa.me/525562067046?text=Hola!%20Me%20gustaría%20reservar%20una%20cita%20en%20LIZZO%20Coyoacán"
+					target="_blank" class="whatsapp-btn">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="white">
+						<path
+							d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+					</svg>
+					WhatsApp
+				</a>
+				<a href="tel:+525562067046" class="btn-outline">Llamar ahora</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- INFO -->
+	<section class="info-section" id="contacto">
+		<div class="container">
+			<p class="section-eyebrow reveal">Encuéntranos</p>
+			<h2 class="section-title reveal reveal-delay-1">Visítanos en <em>Coyoacán</em></h2>
+			<div class="section-line reveal reveal-delay-2"></div>
+			<div class="info-grid">
+				<div class="info-card reveal">
+					<span class="info-icon">📍</span>
+					<h3 class="info-card-title">Dirección</h3>
+					<p class="info-item">
+						Av. División del Norte 2656<br>
+						San Diego Churubusco<br>
+						Coyoacán, CDMX 04120
+					</p>
+					<div style="margin-top:1.2rem;">
+						<a href="https://maps.google.com/?q=Av.+División+del+Nte.+2656,+San+Diego+Churubusco,+Coyoacán,+04120"
+							target="_blank" class="btn-outline" style="font-size:0.68rem;padding:0.6rem 1.2rem;">Ver en Mapa</a>
+					</div>
+				</div>
+				<div class="info-card reveal reveal-delay-1">
+					<span class="info-icon">🕐</span>
+					<h3 class="info-card-title">Horarios</h3>
+					<div class="hours-grid">
+						<span class="hours-day">Lunes</span><span class="hours-time">10:00–18:00</span>
+						<span class="hours-day">Martes</span><span class="hours-time">10:00–18:00</span>
+						<span class="hours-day">Miércoles</span><span class="hours-time">10:00–18:00</span>
+						<span class="hours-day">Jueves</span><span class="hours-time">10:00–18:00</span>
+						<span class="hours-day">Viernes</span><span class="hours-time">10:00–18:00</span>
+						<span class="hours-day">Sábado</span><span class="hours-time">10:00–18:00</span>
+						<span class="hours-day">Domingo</span><span class="hours-time">10:00–18:00</span>
+					</div>
+				</div>
+				<div class="info-card reveal reveal-delay-2">
+					<span class="info-icon">📞</span>
+					<h3 class="info-card-title">Contacto</h3>
+					<p class="info-item">
+						<a href="tel:+525562067046">+52 55 6206 7046</a><br><br>
+						<a href="https://wa.me/525562067046" target="_blank">WhatsApp directo</a><br><br>
+						Atendemos todos los días<br>
+						de 10:00 a 18:00 hrs
+					</p>
+				</div>
+			</div>
+			<!-- Map embed placeholder -->
+			<div style="margin-top:3rem;border:1px solid rgba(201,168,76,0.15);overflow:hidden;" class="reveal">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.9!2d-99.15!3d19.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff6b!2sAv.+Divisi%C3%B3n+del+Norte+2656%2C+San+Diego+Churubusco%2C+Coyoac%C3%A1n%2C+04120+Ciudad+de+M%C3%A9xico%2C+CDMX!5e0!3m2!1ses!2smx!4v1"
+					width="100%" height="300" style="border:0;filter:invert(90%) hue-rotate(180deg);" allowfullscreen=""
+					loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+			</div>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="container">
+			<div class="footer-top">
+				<div>
+					<span class="footer-brand-logo">L'IZZO</span>
+					<span class="footer-brand-sub">New Hair Generation — Coyoacán</span>
+					<p class="footer-brand-desc">Tu destino de belleza en el corazón de Coyoacán. Expertos en transformaciones
+						capilares y belleza integral.</p>
+					<div class="footer-socials">
+						<a href="#" class="footer-social-link" title="Instagram">ig</a>
+						<a href="#" class="footer-social-link" title="Facebook">fb</a>
+						<a href="https://wa.me/525562067046" target="_blank" class="footer-social-link" title="WhatsApp">wa</a>
+					</div>
+				</div>
+				<div>
+					<h4 class="footer-col-title">Servicios</h4>
+					<ul class="footer-links">
+						<li><a href="#servicios">Nupcial</a></li>
+						<li><a href="#servicios">Extensiones</a></li>
+						<li><a href="#servicios">Coloración</a></li>
+						<li><a href="#servicios">Estilismo</a></li>
+						<li><a href="#servicios">Maquillaje</a></li>
+						<li><a href="#servicios">Manicura</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4 class="footer-col-title">Navegación</h4>
+					<ul class="footer-links">
+						<li><a href="#inicio">Inicio</a></li>
+						<li><a href="#servicios">Servicios</a></li>
+						<li><a href="#nosotros">Nosotros</a></li>
+						<li><a href="#galeria">Galería</a></li>
+						<li><a href="#contacto">Contacto</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4 class="footer-col-title">Contacto</h4>
+					<ul class="footer-links">
+						<li><a href="tel:+525562067046">+52 55 6206 7046</a></li>
+						<li><a href="https://wa.me/525562067046" target="_blank">WhatsApp</a></li>
+						<li><a href="#">Coyoacán, CDMX</a></li>
+						<li style="color:var(--text-muted);font-size:0.82rem;">Lun–Dom 10:00–18:00</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p class="footer-copy">© 2025 L'IZZO Coyoacán. Todos los derechos reservados.</p>
+				<p class="footer-copy">Diseñado con ✦ para tu belleza</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- FLOATING WHATSAPP -->
+	<a href="https://wa.me/525562067046?text=Hola!%20Me%20gustaría%20reservar%20una%20cita%20en%20LIZZO%20Coyoacán"
+		target="_blank" class="float-wa" title="WhatsApp">
+		<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+			<path
+				d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+		</svg>
+	</a>
+
+	<script>
+		// ─── NAV scroll effect
+		const navbar = document.getElementById('navbar');
+		window.addEventListener('scroll', () => {
+			navbar.classList.toggle('scrolled', window.scrollY > 60);
+		});
+
+		// ─── Scroll reveal
+		const reveals = document.querySelectorAll('.reveal');
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('revealed');
+				}
+			});
+		}, { threshold: 0.12 });
+		reveals.forEach(el => observer.observe(el));
+
+		// ─── Smooth nav links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', (e) => {
+				const href = anchor.getAttribute('href');
+				if (href === '#') return;
+				e.preventDefault();
+				const target = document.querySelector(href);
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+	</script>
+</body>
+
+</html>
